@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern IMAP Client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>MODERN IMAP CLIENT</span>
+            </div>
+            <div class="user-info">
+                <div class="status-indicator offline">
+                    <i class="fas fa-circle"></i>
+                    <span>Disconnected</span>
+                </div>
+                <div class="user-avatar" id="user-avatar">?</div>
+            </div>
+        </header>
+        
+        <div class="app-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-circle"></i>
+                        Account Login
+                    </h2>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email" placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••">
+                    </div>
+                    <div class="form-group">
+                        <label for="imap-server">IMAP Server (Auto-detect)</label>
+                        <input type="text" id="imap-server" placeholder="imap.example.com">
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" id="connect-btn">
+                            <i class="fas fa-plug"></i>
+                            Connect
+                        </button>
+                        <button class="btn btn-secondary" id="disconnect-btn" disabled>
+                            <i class="fas fa-power-off"></i>
+                        </button>
+                    </div>
+                    <div id="connection-status" class="error-message" style="display: none;"></div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-filter"></i>
+                        Search & Filters
+                    </h2>
+                    <div class="form-group">
+                        <label for="mailbox">Mailbox</label>
+                        <select id="mailbox">
+                            <option value="INBOX">Loading mailboxes...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="search">Search Emails</label>
+                        <input type="text" id="search" placeholder="Search by subject, sender...">
+                    </div>
+                    <button class="btn btn-primary" id="search-btn">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="email-toolbar">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="quick-search" placeholder="Search in current mailbox...">
+                    </div>
+                    <button class="btn btn-success" id="compose-btn">
+                        <i class="fas fa-plus"></i>
+                        New Email
+                    </button>
+                    <button class="btn btn-secondary" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button class="btn btn-danger" id="delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                
+                <div class="email-list" id="email-list">
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <h3>No Emails Loaded</h3>
+                        <p>Connect to your IMAP account to view your emails</p>
+                    </div>
+                </div>
+                
+                <div class="email-preview-container" id="email-preview">
+                    <div class="empty-state">
+                        <i class="fas fa-envelope"></i>
+                        <h3>No Email Selected</h3>
+                        <p>Select an email from the list to view its content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
